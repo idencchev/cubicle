@@ -1,0 +1,19 @@
+<main>
+  <h1>{{product.name}}</h1>
+  <img class="cube" src="{{product.imageUrl}}">
+  <div class="details">
+    <p><span>Description:</span>{{product.description}}</p>
+    <p><span>Difficulty level:</span> {{product.difficultyLevel}}</p>
+    <a class="btn" href="/">Back</a>
+    {{#if isAuthenticated}}
+    <a class="btn" href="/edit/{{product._id}}">Edit</a>
+    <a class="btn" href="/delete/{{product._id}}">Delete</a>
+    {{/if}}
+  </div>
+  <h2>Accessories</h2>
+  <div class="accessories">
+    {{#each product.accessories}}
+    {{>accessory}}
+    {{/each}}
+  </div>
+</main>
